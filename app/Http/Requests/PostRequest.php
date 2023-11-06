@@ -24,7 +24,6 @@ class PostRequest extends FormRequest
     {
         return [
             'website_id' => 'required|exists:websites,id',
-            'slug' => 'required|string|max:255|unique:posts,slug',
             'title' => 'required|string|max:255|unique:posts,title',
             'description' => 'required|string',
         ];

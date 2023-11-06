@@ -19,6 +19,8 @@ class PostService implements PostServiceInterface
     {
         $post = Post::create($data);
 
+//        event(new PostPublished($post));
+
         return new PostResource($post);
     }
 

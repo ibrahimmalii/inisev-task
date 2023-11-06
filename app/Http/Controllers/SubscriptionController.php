@@ -6,6 +6,7 @@ use App\Contracts\SubscriptionServiceInterface;
 use App\Http\Requests\SubscriptionRequest;
 use App\Http\Resources\SubscriptionResource;
 use App\Models\Subscription;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class SubscriptionController extends Controller
@@ -31,7 +32,7 @@ class SubscriptionController extends Controller
         return $this->subscriptionService->show($subscription);
     }
 
-    public function destroy(Subscription $subscription): SubscriptionResource
+    public function destroy(Subscription $subscription): JsonResponse
     {
         return $this->subscriptionService->destroy($subscription);
     }

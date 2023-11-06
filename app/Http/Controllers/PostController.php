@@ -6,6 +6,7 @@ use App\Contracts\PostServiceInterface;
 use App\Http\Requests\PostRequest;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class PostController extends Controller
@@ -31,7 +32,7 @@ class PostController extends Controller
         return $this->postService->show($post);
     }
 
-    public function destroy(Post $post): PostResource
+    public function destroy(Post $post): JsonResponse
     {
         return $this->postService->destroy($post);
     }
