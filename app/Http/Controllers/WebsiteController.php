@@ -18,14 +18,14 @@ class WebsiteController extends Controller
 
     public function index(): AnonymousResourceCollection
     {
-        return WebsiteResource::collection($this->websiteService->index());
+        return $this->websiteService->index();
     }
 
     public function store(WebsiteRequest $request): WebsiteResource
     {
         $websiteData = $request->validated();
 
-        return new WebsiteResource($this->websiteService->store($websiteData));
+        return $this->websiteService->store($websiteData);
     }
 
     public function show(Website $website): WebsiteResource
@@ -35,6 +35,6 @@ class WebsiteController extends Controller
 
     public function destroy(Website $website): WebsiteResource
     {
-        return new WebsiteResource($this->websiteService->destroy($website));
+        return $this->websiteService->destroy($website);
     }
 }

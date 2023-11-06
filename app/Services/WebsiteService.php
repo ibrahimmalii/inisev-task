@@ -3,35 +3,37 @@
 namespace App\Services;
 
 use App\Contracts\WebsiteServiceInterface;
+use App\Http\Resources\WebsiteResource;
 use App\Models\Website;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class WebsiteService implements WebsiteServiceInterface
 {
 
-    public function index(): JsonResponse
+    public function index(): AnonymousResourceCollection
     {
-        return response()->json(['websites' => Website::all()]);
+        return WebsiteResource::collection(Website::all());
     }
 
-    public function store(array $data): JsonResponse
+    public function store(array $data): WebsiteResource
     {
         $website = Website::create($data);
 
-        return response()->json(['website' => $website]);
+        return new WebsiteResource($website);
     }
 
 
 
-    public function destroy(\App\Models\Website $website): JsonResponse
+    public function destroy(Website $website): JsonResponse
     {
         $website->delete();
 
         return response()->json(['message' => 'Website deleted successfully']);
     }
 
-    public function show(\App\Models\Website $website): Website
+    public function show(Website $website): WebsiteResource
     {
-        return $website;
+        return new WebsiteResource($website);
     }
 }
