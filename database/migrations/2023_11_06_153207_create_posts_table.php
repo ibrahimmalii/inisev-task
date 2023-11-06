@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug', 255)->unique();
             $table->string('title', 255)->unique();
             $table->text('description');
+            $table->boolean('is_notified')->default(false);
             $table->timestamps();
         });
     }
