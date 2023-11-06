@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\WebsiteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('websites', WebsiteController::class)
     ->only('index', 'store', 'show', 'destroy');
 
-
 Route::resource('posts', PostController::class)
     ->only('index', 'store', 'show', 'destroy');
+
+Route::resource('subscriptions', SubscriptionController::class)
+   ->only('index', 'store', 'show', 'destroy');
