@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('website_id');
-            $table->timestamps('expires_at');
+            $table->date('expires_at');
             $table->timestamps();
         });
     }

@@ -2,10 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Models\Post;
+use App\Models\Website;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
+ * @extends Factory<Post>
  */
 class PostFactory extends Factory
 {
@@ -17,7 +19,10 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'website_id' => Website::factory(),
+            'slug' => $this->faker->slug,
+            'title' => $this->faker->sentence,
+            'description' => $this->faker->paragraph,
         ];
     }
 }
