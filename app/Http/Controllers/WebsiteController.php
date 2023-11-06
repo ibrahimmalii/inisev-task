@@ -6,8 +6,6 @@ use App\Contracts\WebsiteServiceInterface;
 use App\Http\Requests\WebsiteRequest;
 use App\Http\Resources\WebsiteResource;
 use App\Models\Website;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class WebsiteController extends Controller
